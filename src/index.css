@@ -137,10 +137,10 @@
     border-top: 8px solid white;
   }
 
-  /* Highlighted active nav pill */
-  .nav-bell {
-    background: hsl(var(--bell));
-    color: hsl(var(--bell-foreground));
+  /* Active nav pill */
+  .nav-active {
+    background: hsl(var(--sidebar-foreground));
+    color: hsl(var(--primary));
     font-weight: 700;
     position: relative;
   }

@@ -17,8 +17,6 @@ const buttonVariants = cva(
           "border-2 border-foreground bg-card text-foreground hover:bg-muted",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        bell:
-          "bg-bell text-bell-foreground shadow-sm hover:brightness-105",
         ghost:
           "hover:bg-muted text-foreground",
         link:
