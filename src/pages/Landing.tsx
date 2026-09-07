@@ -414,7 +414,7 @@ export default function Landing() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mb-8">
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <Brand size={28} textClassName="text-base text-white" />
+                <Brand size={28} textClassName="text-base text-white" iconClassName="text-white" />
               </div>
 
               <p className="text-sm text-slate-500">Your path to financial freedom</p>

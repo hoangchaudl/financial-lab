@@ -85,12 +85,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="h-screen w-screen overflow-hidden bg-background flex flex-col md:flex-row">
       {/* Mobile Header */}
-      <div className="md:hidden flex items-center justify-between p-4 bg-primary text-white">
-        <Brand size={30} textClassName="text-xl" />
+      <div className="md:hidden flex items-center justify-between p-4 bg-gradient-to-b from-primary to-sky-500 text-white">
+        <Brand size={30} textClassName="text-xl" iconClassName="text-white" />
 
         <Button
-          variant="bell"
+          variant="ghost"
           size="icon"
+          className="text-white hover:bg-white/15 hover:text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X /> : <Menu />}
@@ -100,14 +101,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Sidebar Navigation */}
       <aside
         className={`
-        fixed inset-y-0 left-0 z-50 w-64 max-w-[85vw] bg-primary text-white transform transition-transform duration-200 ease-in-out
+        fixed inset-y-0 left-0 z-50 w-64 max-w-[85vw] bg-gradient-to-b from-primary to-sky-500 text-white transform transition-transform duration-200 ease-in-out
         md:relative md:translate-x-0 md:max-w-none flex flex-col h-full overflow-hidden
         ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"}
       `}
       >
         {/* Logo */}
         <div className="relative z-10 p-4 pb-2">
-          <Brand size={36} textClassName="text-2xl" className="text-white" />
+          <Brand size={36} textClassName="text-2xl" className="text-white" iconClassName="text-white" />
         </div>
 
 
@@ -140,7 +141,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   to={item.path}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`flex items-center gap-3 px-3 py-2.5 rounded-full text-sm font-bold transition-colors ${
-                    isActive ? "nav-bell" : "text-white hover:bg-white/15"
+                    isActive ? "nav-active" : "text-white hover:bg-white/15"
                   }`}
                 >
                   <Icon className="h-5 w-5" strokeWidth={2} />
@@ -160,8 +161,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Keyboard className="h-4 w-4" strokeWidth={2} />
             <span className="flex-1 text-left">Shortcuts</span>
             <div className="flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 rounded bg-bell text-[10px] font-bold text-bell-foreground">⌘K</kbd>
-              <kbd className="px-1.5 py-0.5 rounded bg-bell text-[10px] font-bold text-bell-foreground">?</kbd>
+              <kbd className="px-1.5 py-0.5 rounded bg-muted text-[10px] font-bold text-muted-foreground">⌘K</kbd>
+              <kbd className="px-1.5 py-0.5 rounded bg-muted text-[10px] font-bold text-muted-foreground">?</kbd>
             </div>
           </button>
           <button
@@ -184,7 +185,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 src={avatarUrl}
                 alt={user?.user_metadata?.full_name as string}
               />
-              <AvatarFallback className="text-sm font-bold bg-bell text-bell-foreground">
+              <AvatarFallback className="text-sm font-bold bg-primary text-primary-foreground">
                 {getInitials()}
               </AvatarFallback>
             </Avatar>
