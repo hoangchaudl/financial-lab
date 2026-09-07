@@ -4,79 +4,79 @@
 
 @layer base {
   :root {
-    /* Doraemon theme — clean white with screentone */
+    /* Finance Lab theme — clean SaaS blue on white */
     --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
+    --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover-foreground: 222 47% 11%;
 
-    /* Doraemon blue #00A0E9 */
-    --primary: 199 100% 46%;
+    /* Brand blue #2563EB */
+    --primary: 221 83% 53%;
     --primary-foreground: 0 0% 100%;
-    /* deep navy for readable text on blue surfaces (WCAG AA) */
-    --primary-foreground-strong: 202 100% 22%;
+    /* deep navy for readable text on blue-tinted surfaces (WCAG AA) */
+    --primary-foreground-strong: 224 64% 27%;
 
-    --secondary: 199 100% 96%;
-    --secondary-foreground: 0 0% 10%;
+    --secondary: 214 100% 97%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 35%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 199 100% 94%;
-    --accent-foreground: 0 0% 10%;
+    --accent: 214 95% 93%;
+    --accent-foreground: 222 47% 11%;
 
-    /* Accent red #E60026 — also used as loss */
-    --destructive: 350 100% 45%;
+    /* Loss red #DC2626 */
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-    --loss: 350 100% 45%;
+    --loss: 0 72% 51%;
 
-    /* Gains #00B060 */
-    --success: 151 100% 35%;
-    --warning: 51 100% 50%;
-    /* Warning is a bright gold — needs a darker readable tone for text/icons
+    /* Gains #16A34A */
+    --success: 142 71% 40%;
+    --warning: 38 92% 50%;
+    /* Warning is a bright amber — needs a darker readable tone for text/icons
        on top of it or on its tinted backgrounds (same trick as
        --primary-foreground-strong above). */
-    --warning-foreground: 40 70% 28%;
+    --warning-foreground: 26 90% 27%;
 
-    /* Bell yellow #FFD700 */
-    --bell: 51 100% 50%;
-    --bell-foreground: 0 0% 10%;
+    /* Accent gold — used for highlighted/active chips */
+    --bell: 43 96% 56%;
+    --bell-foreground: 222 47% 11%;
 
     /* Categorical chart palette — one shared source of truth for every
        pie/donut/line series in the app. chart-1/2/4 intentionally echo the
        brand's primary/success/warning hues so a slice's color carries the
        same meaning it would anywhere else in the UI; chart-3/5/6/7 are
        chart-only hues chosen to stay legible side-by-side with them. */
-    --chart-1: 199 100% 46%; /* Doraemon blue — Stocks */
-    --chart-2: 151 100% 35%; /* Doraemon green — Savings / Cash */
-    --chart-3: 262 83% 62%;  /* violet — Crypto */
-    --chart-4: 51 100% 50%;  /* gold — Gold */
-    --chart-5: 174 70% 41%;  /* teal — ETF */
-    --chart-6: 24 95% 53%;   /* orange — Mutual Funds */
-    --chart-7: 0 0% 55%;     /* neutral gray — Other */
+    --chart-1: 221 83% 53%; /* brand blue — Stocks */
+    --chart-2: 142 71% 40%; /* green — Savings / Cash */
+    --chart-3: 262 83% 62%; /* violet — Crypto */
+    --chart-4: 43 96% 56%;  /* gold — Gold */
+    --chart-5: 174 70% 41%; /* teal — ETF */
+    --chart-6: 24 95% 53%;  /* orange — Mutual Funds */
+    --chart-7: 220 9% 55%;  /* neutral gray — Other */
 
-    /* Outline near-black #1A1A1A */
-    --outline: 0 0% 10%;
-    --border: 0 0% 10%;
-    --border-soft: 0 0% 88%;
-    --input: 0 0% 10%;
-    --ring: 199 100% 46%;
+    /* Soft slate borders/dividers */
+    --outline: 214 32% 91%;
+    --border: 214 32% 91%;
+    --border-soft: 210 40% 96%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
 
     --radius: 1rem;
 
-    /* Sidebar (Doraemon blue with pocket) */
-    --sidebar-background: 199 100% 46%;
+    /* Sidebar (brand blue) */
+    --sidebar-background: 221 83% 53%;
     --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 51 100% 50%;
-    --sidebar-primary-foreground: 0 0% 10%;
-    --sidebar-accent: 199 100% 40%;
+    --sidebar-primary: 43 96% 56%;
+    --sidebar-primary-foreground: 222 47% 11%;
+    --sidebar-accent: 221 76% 46%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 0 0% 10%;
-    --sidebar-ring: 51 100% 50%;
+    --sidebar-border: 221 76% 46%;
+    --sidebar-ring: 43 96% 56%;
   }
 }
 
@@ -89,12 +89,6 @@
     @apply bg-background text-foreground;
     font-family: "Nunito", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
       Roboto, sans-serif;
-    /* Subtle manga screentone dot grid */
-    background-image: radial-gradient(
-      hsl(0 0% 10% / 0.08) 1px,
-      transparent 1px
-    );
-    background-size: 14px 14px;
   }
 
   td, th, .tabular, .font-tabular {
@@ -105,78 +99,57 @@
 /* Utility classes */
 @layer components {
   .card-shadow {
-    box-shadow: 4px 4px 0 0 hsl(var(--outline));
+    box-shadow: 0 1px 3px 0 rgb(15 23 42 / 0.08), 0 1px 2px -1px rgb(15 23 42 / 0.08);
   }
   .card-shadow-sm {
-    box-shadow: 2px 2px 0 0 hsl(var(--outline));
+    box-shadow: 0 1px 2px 0 rgb(15 23 42 / 0.06);
   }
   .floating-nav-shadow {
-    box-shadow: 6px 6px 0 0 hsl(var(--outline));
+    box-shadow: 0 10px 25px -5px rgb(15 23 42 / 0.15), 0 4px 6px -4px rgb(15 23 42 / 0.1);
   }
   .card-base {
-    @apply bg-white rounded-2xl border-2 border-outline card-shadow;
+    @apply bg-white rounded-2xl border border-border card-shadow;
   }
   .hero-gradient {
     @apply bg-gradient-to-br from-primary to-sky-400;
   }
 
-  /* Manga chapter-title style header for page H1 */
-  .manga-title {
-    font-family: "Bangers", "Nunito", ui-sans-serif, system-ui, sans-serif;
-    letter-spacing: 0.06em;
-    -webkit-text-stroke: 1px hsl(var(--outline));
-    text-shadow: 2px 2px 0 hsl(var(--outline));
-    font-weight: 400;
-  }
   .font-display {
-    font-family: "Abril Fatface", "Bangers", "Nunito", ui-sans-serif, system-ui, sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.02em;
+    font-family: "Fredoka", "Nunito", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.01em;
   }
 
   /* Speech-bubble tooltip wrapper (used in Recharts custom tooltip) */
   .manga-bubble {
-    @apply bg-white rounded-2xl border-2 border-outline card-shadow px-3 py-2;
+    @apply bg-white rounded-2xl border border-border card-shadow px-3 py-2;
     position: relative;
   }
   .manga-bubble::after {
     content: "";
     position: absolute;
     left: 18px;
-    bottom: -10px;
+    bottom: -8px;
     width: 0;
     height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 10px solid hsl(var(--outline));
-  }
-  .manga-bubble::before {
-    content: "";
-    position: absolute;
-    left: 20px;
-    bottom: -6px;
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
     border-top: 8px solid white;
-    z-index: 1;
   }
 
-  /* Bell-shaped active nav pill */
+  /* Highlighted active nav pill */
   .nav-bell {
     background: hsl(var(--bell));
-    color: hsl(var(--outline));
-    border: 2px solid hsl(var(--outline));
-    box-shadow: 2px 2px 0 0 hsl(var(--outline));
+    color: hsl(var(--bell-foreground));
+    font-weight: 700;
     position: relative;
   }
 }
 
-/* driver.js tour theming (manga speech bubble) */
+/* driver.js tour theming */
 .driver-popover.fl-tour {
-  @apply rounded-2xl border-2 border-outline bg-white;
-  box-shadow: 6px 6px 0 0 hsl(var(--outline));
+  @apply rounded-2xl border border-border bg-white;
+  box-shadow: 0 10px 25px -5px rgb(15 23 42 / 0.15), 0 4px 6px -4px rgb(15 23 42 / 0.1);
   padding: 18px 20px;
   max-width: 360px;
 }
@@ -191,9 +164,9 @@
   @apply text-xs text-muted-foreground;
 }
 .driver-popover.fl-tour .driver-popover-footer button {
-  @apply rounded-full text-sm font-bold px-4 py-1.5 border-2 border-outline;
+  @apply rounded-full text-sm font-bold px-4 py-1.5 border border-border;
   text-shadow: none;
-  box-shadow: 2px 2px 0 0 hsl(var(--outline));
+  box-shadow: 0 1px 2px 0 rgb(15 23 42 / 0.06);
 }
 .driver-popover.fl-tour .driver-popover-next-btn,
 .driver-popover.fl-tour .driver-popover-done-btn {

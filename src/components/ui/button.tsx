@@ -5,24 +5,24 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-bold ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border-2 border-outline card-shadow-sm active:translate-x-[1px] active:translate-y-[1px] active:shadow-none",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-bold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground hover:brightness-110",
+          "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90",
         destructive:
-          "bg-destructive text-destructive-foreground hover:brightness-110",
+          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
-          "bg-card text-foreground hover:bg-muted",
+          "border-2 border-foreground bg-card text-foreground hover:bg-muted",
         secondary:
-          "bg-secondary text-secondary-foreground hover:brightness-95",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         bell:
-          "bg-bell text-bell-foreground hover:brightness-105",
+          "bg-bell text-bell-foreground shadow-sm hover:brightness-105",
         ghost:
-          "border-transparent shadow-none hover:bg-muted text-foreground active:translate-x-0 active:translate-y-0",
+          "hover:bg-muted text-foreground",
         link:
-          "border-transparent shadow-none text-primary underline-offset-4 hover:underline active:translate-x-0 active:translate-y-0",
+          "text-primary underline-offset-4 hover:underline",
       },
       size: {
         default: "h-10 px-5 py-2",

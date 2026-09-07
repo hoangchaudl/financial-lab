@@ -85,7 +85,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="h-screen w-screen overflow-hidden bg-background flex flex-col md:flex-row">
       {/* Mobile Header */}
-      <div className="md:hidden flex items-center justify-between p-4 border-b-2 border-outline bg-primary text-white">
+      <div className="md:hidden flex items-center justify-between p-4 bg-primary text-white">
         <Brand size={30} textClassName="text-xl" />
 
         <Button
@@ -97,26 +97,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </Button>
       </div>
 
-      {/* Sidebar Navigation — Doraemon belly + pocket */}
+      {/* Sidebar Navigation */}
       <aside
         className={`
-        fixed inset-y-0 left-0 z-50 w-64 max-w-[85vw] bg-primary text-white border-r-2 border-outline transform transition-transform duration-200 ease-in-out
+        fixed inset-y-0 left-0 z-50 w-64 max-w-[85vw] bg-primary text-white transform transition-transform duration-200 ease-in-out
         md:relative md:translate-x-0 md:max-w-none flex flex-col h-full overflow-hidden
         ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"}
       `}
       >
-        {/* White semicircle "belly pocket" behind lower content */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute left-1/2 -translate-x-1/2 bg-white border-2 border-outline"
-          style={{
-            bottom: "-40px",
-            width: "150%",
-            height: "260px",
-            borderRadius: "50% 50% 0 0 / 60% 60% 0 0",
-          }}
-        />
-
         {/* Logo */}
         <div className="relative z-10 p-4 pb-2">
           <Brand size={36} textClassName="text-2xl" className="text-white" />
@@ -151,10 +139,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Link
                   to={item.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`flex items-center gap-3 px-3 py-2.5 rounded-full text-sm font-bold transition-all ${
-                    isActive
-                      ? "nav-bell"
-                      : "text-white hover:bg-white/15 border-2 border-transparent"
+                  className={`flex items-center gap-3 px-3 py-2.5 rounded-full text-sm font-bold transition-colors ${
+                    isActive ? "nav-bell" : "text-white hover:bg-white/15"
                   }`}
                 >
                   <Icon className="h-5 w-5" strokeWidth={2} />
@@ -165,17 +151,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           })}
         </nav>
 
-        {/* Footer Section — inside the white pocket */}
-        <div className="relative z-10 mt-2 mx-3 rounded-2xl border-2 border-outline bg-white card-shadow-sm p-2 space-y-1">
+        {/* Footer Section */}
+        <div className="relative z-10 mt-2 mx-3 rounded-2xl bg-white shadow-sm p-2 space-y-1">
           <button
             onClick={() => setShortcutsOpen(true)}
-            className="flex items-center gap-3 w-full px-3 py-2 rounded-full text-sm font-bold text-foreground hover:bg-bell/20 transition-colors"
+            className="flex items-center gap-3 w-full px-3 py-2 rounded-full text-sm font-bold text-foreground hover:bg-muted transition-colors"
           >
             <Keyboard className="h-4 w-4" strokeWidth={2} />
             <span className="flex-1 text-left">Shortcuts</span>
             <div className="flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 rounded border-2 border-outline bg-bell text-[10px] font-bold text-outline">⌘K</kbd>
-              <kbd className="px-1.5 py-0.5 rounded border-2 border-outline bg-bell text-[10px] font-bold text-outline">?</kbd>
+              <kbd className="px-1.5 py-0.5 rounded bg-bell text-[10px] font-bold text-bell-foreground">⌘K</kbd>
+              <kbd className="px-1.5 py-0.5 rounded bg-bell text-[10px] font-bold text-bell-foreground">?</kbd>
             </div>
           </button>
           <button
@@ -191,14 +177,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="relative z-10 mx-3 mb-3 mt-2">
           <button
             onClick={() => navigate("/profile")}
-            className="flex items-center gap-3 w-full px-3 py-2 rounded-2xl border-2 border-outline bg-white card-shadow-sm hover:bg-bell/10 transition-colors"
+            className="flex items-center gap-3 w-full px-3 py-2 rounded-2xl bg-white shadow-sm hover:bg-muted transition-colors"
           >
-            <Avatar className="h-10 w-10 border-2 border-outline">
+            <Avatar className="h-10 w-10 border border-border">
               <AvatarImage
                 src={avatarUrl}
                 alt={user?.user_metadata?.full_name as string}
               />
-              <AvatarFallback className="text-sm font-bold bg-bell text-outline">
+              <AvatarFallback className="text-sm font-bold bg-bell text-bell-foreground">
                 {getInitials()}
               </AvatarFallback>
             </Avatar>
