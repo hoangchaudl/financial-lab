@@ -85,7 +85,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="h-screen w-screen overflow-hidden bg-background flex flex-col md:flex-row">
       {/* Mobile Header */}
-      <div className="md:hidden flex items-center justify-between p-4 bg-primary text-white">
+      <div className="md:hidden flex items-center justify-between p-4 bg-gradient-to-b from-primary to-sky-500 text-white">
         <Brand size={30} textClassName="text-xl" iconClassName="text-white" />
 
         <Button
@@ -101,7 +101,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Sidebar Navigation */}
       <aside
         className={`
-        fixed inset-y-0 left-0 z-50 w-64 max-w-[85vw] bg-primary text-white transform transition-transform duration-200 ease-in-out
+        fixed inset-y-0 left-0 z-50 w-64 max-w-[85vw] bg-gradient-to-b from-primary to-sky-500 text-white transform transition-transform duration-200 ease-in-out
         md:relative md:translate-x-0 md:max-w-none flex flex-col h-full overflow-hidden
         ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"}
       `}
