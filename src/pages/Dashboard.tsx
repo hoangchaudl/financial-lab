@@ -299,7 +299,7 @@ export default function Dashboard() {
       />
 
       {/* Hero Balance Card */}
-      <div data-tour="net-worth" className="hero-gradient rounded-3xl p-8 text-white border-2 border-outline card-shadow">
+      <div data-tour="net-worth" className="hero-gradient rounded-3xl p-8 text-white card-shadow">
         <p className="text-sm text-white/80 mb-2">Total Net Worth</p>
         <h2 className="font-bold text-3xl">{fmt(netWorth)}</h2>
       </div>
